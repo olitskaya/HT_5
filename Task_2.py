@@ -8,14 +8,11 @@ class LoginException(Exception):
     pass
 
 def user(username, password):
-    if (username == key and password == value):
+    if len(username) >= 3 and len(username) <= 50 and len(password) >= 8 and password.isalpha() == False and password.isalnum() == True:
         return True 
-        if (username != key and password != value and silent == True):
-            return False 
-        if (username != key and password != value and silent == False):
-            raise LoginException("Wrong login and password!")
+    else:
+        raise LoginException("Wrong login or password!")
     
 test_username = str(input("Enter username: "))
-test_username = test_username.lower()
 test_password = str(input("Enter password: "))
 print(user(test_username, test_password))
