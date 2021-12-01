@@ -9,6 +9,4 @@ def range_test(start, stop, step = 1):
 	while i < stop :
 		i += step
 		list_test.append(i)
-	return list_test
-	
-print(range_test(0, 10, 2))
+	yield i
