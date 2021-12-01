@@ -20,7 +20,7 @@ def user(username, password):
 	print(f"\n\nusername: {key}")
 	print(f"password: {value}")
 	print(f"Status: ")
-	if len(username) >= 3 and len(username) <= 50 and len(password) >= 8 and password.isalpha() == False and password.isalnum() == True:
+	if len(username) >= 3 and len(username) <= 50 and len(password) >= 8 and password.isalpha() == False and password.isalnum():
 		print("Ok.")
 	try:
 		if len(username) < 3 or len(username) > 50:
@@ -28,7 +28,7 @@ def user(username, password):
 	except LoginException:
 		print("Username must be at least 3 characters and no more than 50 characters.")
 	try:
-		if len(password) < 8 or password.isalpha() != False or password.isalnum() != True:
+		if len(password) < 8 or password.isalpha() or password.isalnum() == False:
 			raise PasswordException
 	except PasswordException:
 		print("Password must be at least 8 characters and contain only letters and at least 1 number.")
