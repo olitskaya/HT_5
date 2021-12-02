@@ -15,7 +15,7 @@
 # .......
 
 def range_test(a):
-    for elem in a:
-    	print(elem)
-    	if elem == a[-1]:
-    		yield elem 
+    while True:
+        for elem in a:
+    	    yield elem
+    	    print(elem)
