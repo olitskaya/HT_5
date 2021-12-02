@@ -10,31 +10,21 @@
 # Status: OK
 # P.S. Не забудьте використати блок try/except ;
 
-class LoginException(Exception):
-	pass
-
-class PasswordException(Exception):
+class UserException(Exception):
 	pass
 
 def user(username, password):
-	print(f"\n\nusername: {key}")
-	print(f"password: {value}")
-	print(f"Status: ")
-	if len(username) >= 3 and len(username) <= 50 and len(password) >= 8 and password.isalpha() == False and password.isalnum():
-		print("Ok.")
-	try:
-		if len(username) < 3 or len(username) > 50:
-			raise LoginException
-	except LoginException:
-		print("Username must be at least 3 characters and no more than 50 characters.")
-	try:
-		if len(password) < 8 or password.isalpha() or password.isalnum() == False:
-			raise PasswordException
-	except PasswordException:
-		print("Password must be at least 8 characters and contain only letters and at least 1 number.")
-		
+    if len(username) >= 3 and len(username) <= 50:
+        if len(password) >= 8 and password.isalpha() == False and password.isalnum():
+            print(f"\n\nusername: {username}\npassword: {password}\nStatus: Ok.")
+    try:
+        if len(username) < 3 or len(username) > 50:
+            raise UserException("Username must be at least 3 characters and no more than 50 characters.")
+        if len(password) < 8 or password.isalpha() or password.isalnum() == False:
+            raise UserException("Password must be at least 8 characters and contain only letters and at least 1 number.")
+    except UserException as e:
+       print(f"\n\nusername: {username}\npassword: {password}\nStatus: {e}")
 
 users = {'username1': 'password1', 'us': 'password2', 'username3': 'passwo', 'u': 'password_4'}
-for i in range(0, len(users)):
-	for key, value in users.items():
-		user(key, value)
+for key, value in users.items():
+		   user(key, value)
