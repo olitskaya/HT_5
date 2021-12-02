@@ -7,5 +7,5 @@ def range_test(start, stop = 0, step = 1):
         stop = start
         start = 0
     while start < stop:
-        start = start + step
         yield start 
+        start = start + step
