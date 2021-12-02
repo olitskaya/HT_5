@@ -9,12 +9,11 @@ class LoginException(Exception):
 
 def user(username, password):
     if len(username) >= 3 and len(username) <= 50:
-        return True
-    else:
-        raise LoginException("Wrong login")
-    if len(password) >= 8 and password.isalpha() == False and password.isalnum() == True:
-        return True 
-    else:
+        if len(password) >= 8 and password.isalpha() == False and password.isalnum():
+            return True 
+    if len(username) < 3 or len(username) > 50:
+        raise LoginException("Wrong login!")
+    if len(password) < 8 or password.isalpha() or password.isalnum() == False:
         raise LoginException("Wrong password!")
     
 test_username = str(input("Enter username: "))
