@@ -10,15 +10,14 @@ class LoginException(Exception):
     pass
 
 def user(username, password, silent=False):
-    users = {'username1': 'password1', 'username2': 'password2', 'username3': 'password3',
-            'username4': 'password4', 'username5': 'password5'}
-    for key, value in users.items():
-        if username == key and password == value:
-            return True 
-        if username != key and password != value and silent == True:
-            return False 
-        if username != key and password != value and silent == False:
-            raise LoginException("Wrong login and password!")
+    users = [('username1', 'password1'), ('username2', 'password2'), ('username3', 'password3'), ('username4', 'password4'), ('username5', 'password5')]
+    user_test = (username, password)
+    if users[0] == user_test or users[1] == user_test or users[2] == user_test or users[3] == user_test or users[4] == user_test:
+        return True
+    if users[0] == user_test or users[1] == user_test or users[2] == user_test or users[3] == user_test or users[4] == user_test and silent:
+        return False
+    if users[0] == user_test or users[1] == user_test or users[2] == user_test or users[3] == user_test or users[4] == user_test and silent == False:
+        raise LoginException("Wrong login and password!")
     
 test_username = str(input("Enter username: "))
 test_username = test_username.lower()
